@@ -23,7 +23,7 @@ namespace Organizador.Convertidores
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            throw new NotImplementedException(); // No lo necesitamos para mostrar datos
+            throw new NotImplementedException();
         }
     }
 }

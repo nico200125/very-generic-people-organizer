@@ -1,5 +1,6 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:vm="using:Organizador.ViewModels"
+        xmlns:conv="clr-namespace:Organizador.Convertidores"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -7,14 +8,21 @@
         x:Class="Organizador.Views.MostrarPersonaWindow"
         x:DataType="vm:MostrarPersonaViewModel"
         Title="Window1">
+    <Window.Resources>
+        <conv:CIstring x:Key="CIstring"/>
+    </Window.Resources>
+
     <StackPanel Margin="20" Spacing="10">
         <TextBlock Text="Informacion de la Persona" FontSize="18" FontWeight="Bold"/>
         
         <Separator/>
         
-        <Label Content="Cedula de Identidad:"/>
-        <TextBlock Text="{Binding persona.CI}" FontWeight="Bold"/>
-        
+        <StackPanel Orientation="Horizontal" Spacing="2">
+            <Label Content="Cedula de Identidad:" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+            <SelectableTextBlock x:Name="CISelectableTextBlock" Text="{Binding persona.CI, Converter={StaticResource CIstring}}" VerticalAlignment="Center"/>
+            <TextBox x:Name="CITextBox" Text="{Binding persona.CI}" IsVisible="False" VerticalAlignment="Center"/>
+            <Button x:Name="EditarButton" Content="Editar" VerticalAlignment="Center"/>
+        </StackPanel>
         <Label Content="Nombre Completo:"/>
         <TextBlock Text="{Binding persona.Name}" FontSize="16"/>
        
