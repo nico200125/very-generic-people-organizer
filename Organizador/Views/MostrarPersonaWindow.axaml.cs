@@ -11,6 +11,7 @@ public partial class MostrarPersonaWindow : Window
         InitializeComponent();
         this.FindControl<Button>("EditarButton").Click += EditarButton_Click;
         this.FindControl<Button>("EditarButtonN").Click += EditarButton_Click;
+        this.FindControl<Button>("EditarButtonBD").Click += EditarButton_Click;
     }
 
     private void EditarButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
@@ -21,6 +22,8 @@ public partial class MostrarPersonaWindow : Window
         var ciSelectableTextBlock = this.FindControl<SelectableTextBlock>("CISelectableTextBlock");
         var nombreSelectableTextBlock = this.FindControl<SelectableTextBlock>("NameSelectableTextBlock");
         var nombreTextBox = this.FindControl<TextBox>("NameTextBox");
+        var birthDateSelectableTextBlock = this.FindControl<SelectableTextBlock>("BirthDateSelectableTextBlock");
+        var birthDateDatePicker = this.FindControl<DatePicker>("BirthDateDatePicker");
 
         switch (buttonName)
         {
@@ -31,6 +34,10 @@ public partial class MostrarPersonaWindow : Window
             case "EditarButtonN":
                 nombreTextBox.IsVisible = true;
                 nombreSelectableTextBlock.IsVisible = false;
+                break;
+            case "EditarButtonBD":
+                birthDateDatePicker.IsVisible = true;
+                birthDateSelectableTextBlock.IsVisible = false;
                 break;
         }
     }

@@ -23,11 +23,17 @@
             <TextBox x:Name="CITextBox" Text="{Binding persona.CI}" IsVisible="False" VerticalAlignment="Center"/>
             <Button x:Name="EditarButton" Content="Editar" VerticalAlignment="Center"/>
         </StackPanel>
-         <StackPanel Orientation="Horizontal" Spacing="2">
+        <StackPanel Orientation="Horizontal" Spacing="2">
             <Label Content="Nombre Completo:" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
             <SelectableTextBlock x:Name="NameSelectableTextBlock" Text="{Binding persona.Name}" VerticalAlignment="Center"/>
             <TextBox x:Name="NameTextBox" Text="{Binding persona.Name}" IsVisible="False" VerticalAlignment="Center"/>
             <Button x:Name="EditarButtonN" Content="Editar" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="2">
+            <Label Content="Fecha de Nacimiento:" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+            <SelectableTextBlock x:Name="BirthDateSelectableTextBlock" Text="{Binding persona.BirthDate, StringFormat=dd/MM/yyyy}" VerticalAlignment="Center"/>
+            <DatePicker x:Name="BirthDateDatePicker" SelectedDate="{Binding persona.BirthDate, Mode=TwoWay}" IsVisible="False" VerticalAlignment="Center"/>
+            <Button x:Name="EditarButtonBD" Content="Editar" VerticalAlignment="Center"/>
         </StackPanel>
        
     </StackPanel>
