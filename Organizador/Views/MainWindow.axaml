@@ -1,0 +1,58 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Organizador.ViewModels"
+        xmlns:conv="clr-namespace:Organizador.Convertidores"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="https://github.com/projektanker/icons.avalonia"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Organizador.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Organizador">
+    <Window.Resources>
+        <conv:CIstring x:Key="CIstring"/>
+    </Window.Resources>
+
+    <DockPanel>
+        
+        <Border DockPanel.Dock="Top" 
+                Background="{DynamicResource SystemRegionBrushLow}" 
+                BorderBrush="LightGray" 
+                BorderThickness="0,0,0,1" 
+                Padding="5">
+            
+            <StackPanel Orientation="Horizontal" Spacing="5">
+                <Button Content="Agregar Persona" Click="AgregarPersona_Click"  />
+                <Button Width="35" Height="35">
+                    <i:Icon Value="mdi-refresh" FontSize="24"/>
+                </Button>
+                
+                <TextBox Width="150" Watermark="Buscar por CI..." Margin="10,0,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <Grid Margin="10">
+            <ListBox ItemsSource="{Binding personas}" SelectedItem="{Binding selectedPersona}" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel LastChildFill="False">
+                
+                            <TextBlock DockPanel.Dock="Left" 
+                                       Text="{Binding CI, Converter={StaticResource CIstring}}" 
+                                       FontWeight="Bold" 
+                                       VerticalAlignment="Center"/>
+                
+                            <TextBlock DockPanel.Dock="Right" 
+                                       Text="{Binding Name}" 
+                                       VerticalAlignment="Center"/>
+                
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+        </Grid>
+        
+    </DockPanel>
+</Window>
