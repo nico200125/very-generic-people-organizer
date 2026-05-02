@@ -23,8 +23,12 @@
             <TextBox x:Name="CITextBox" Text="{Binding persona.CI}" IsVisible="False" VerticalAlignment="Center"/>
             <Button x:Name="EditarButton" Content="Editar" VerticalAlignment="Center"/>
         </StackPanel>
-        <Label Content="Nombre Completo:"/>
-        <TextBlock Text="{Binding persona.Name}" FontSize="16"/>
+         <StackPanel Orientation="Horizontal" Spacing="2">
+            <Label Content="Nombre Completo:" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+            <SelectableTextBlock x:Name="NameSelectableTextBlock" Text="{Binding persona.Name}" VerticalAlignment="Center"/>
+            <TextBox x:Name="NameTextBox" Text="{Binding persona.Name}" IsVisible="False" VerticalAlignment="Center"/>
+            <Button x:Name="EditarButtonN" Content="Editar" VerticalAlignment="Center"/>
+        </StackPanel>
        
     </StackPanel>
 </Window>

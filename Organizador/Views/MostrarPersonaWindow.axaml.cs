@@ -10,14 +10,28 @@ public partial class MostrarPersonaWindow : Window
     {
         InitializeComponent();
         this.FindControl<Button>("EditarButton").Click += EditarButton_Click;
+        this.FindControl<Button>("EditarButtonN").Click += EditarButton_Click;
     }
 
     private void EditarButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
+        string buttonName = (sender as Button)?.Name ?? string.Empty;
+
         var ciTextBox = this.FindControl<TextBox>("CITextBox");
         var ciSelectableTextBlock = this.FindControl<SelectableTextBlock>("CISelectableTextBlock");
+        var nombreSelectableTextBlock = this.FindControl<SelectableTextBlock>("NameSelectableTextBlock");
+        var nombreTextBox = this.FindControl<TextBox>("NameTextBox");
 
-        ciTextBox.IsVisible = true;
-        ciSelectableTextBlock.IsVisible = false;
+        switch (buttonName)
+        {
+            case "EditarButton":
+                ciTextBox.IsVisible = true;
+                ciSelectableTextBlock.IsVisible = false;
+                break;
+            case "EditarButtonN":
+                nombreTextBox.IsVisible = true;
+                nombreSelectableTextBlock.IsVisible = false;
+                break;
+        }
     }
 }
