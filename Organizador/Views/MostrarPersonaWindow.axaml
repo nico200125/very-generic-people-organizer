@@ -14,13 +14,11 @@
 
     <StackPanel Margin="20" Spacing="10">
         <TextBlock Text="Informacion de la Persona" FontSize="18" FontWeight="Bold"/>
-        
         <Separator/>
-        
         <StackPanel Orientation="Horizontal" Spacing="2">
             <Label Content="Cedula de Identidad:" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
             <SelectableTextBlock x:Name="CISelectableTextBlock" Text="{Binding persona.CI, Converter={StaticResource CIstring}}" VerticalAlignment="Center"/>
-            <TextBox x:Name="CITextBox" Text="{Binding persona.CI}" IsVisible="False" VerticalAlignment="Center"/>
+            <TextBox x:Name="CITextBox" IsVisible="False" VerticalAlignment="Center"/>
             <Button x:Name="EditarButton" Content="Editar" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Spacing="2">
@@ -32,9 +30,30 @@
         <StackPanel Orientation="Horizontal" Spacing="2">
             <Label Content="Fecha de Nacimiento:" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
             <SelectableTextBlock x:Name="BirthDateSelectableTextBlock" Text="{Binding persona.BirthDate, StringFormat=dd/MM/yyyy}" VerticalAlignment="Center"/>
-            <DatePicker x:Name="BirthDateDatePicker" SelectedDate="{Binding persona.BirthDate, Mode=TwoWay}" IsVisible="False" VerticalAlignment="Center"/>
+            <DatePicker x:Name="BirthDateDatePicker" IsVisible="False" VerticalAlignment="Center"/>
             <Button x:Name="EditarButtonBD" Content="Editar" VerticalAlignment="Center"/>
         </StackPanel>
-       
+        <StackPanel Orientation="Horizontal" Spacing="2">
+            <Label Content="Edad:" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+            <SelectableTextBlock x:Name="AgeSelectableTextBlock" Text="{Binding persona.Age}" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="2">
+            <Label Content="Telefono:" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+            <SelectableTextBlock x:Name="PhoneSelectableTextBlock" Text="{Binding persona.Telefono}" VerticalAlignment="Center"/>
+            <TextBox x:Name="PhoneTextBox" Text="{Binding persona.Telefono}" IsVisible="False" VerticalAlignment="Center"/>
+            <Button x:Name="EditarButtonPhone" Content="Editar" VerticalAlignment="Center"/>
+        </StackPanel>
+        <Label Content="Notas:" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+        <ItemsControl ItemsSource="{Binding Notas}">
+			<ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Spacing="2">
+                        <SelectableTextBlock Text="{Binding}" VerticalAlignment="Center"/>
+                        <Button Content="Editar" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
     </StackPanel>
 </Window>

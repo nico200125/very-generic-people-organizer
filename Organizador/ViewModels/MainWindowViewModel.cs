@@ -35,9 +35,9 @@ namespace Organizador.ViewModels
 
         public MainWindowViewModel() {
             conP = Fabrica.CreateController();
-            List<String> notas1 = new List<String>();
-            List<String> notas2 = new List<String>();
-            List<String> notas3 = new List<String>();
+            List<String> notas1 = new List<String> { "Nota de prueba 1 para persona A" };
+            List<String> notas2 = new List<String> { "Nota de prueba 1 para persona B" };
+            List<String> notas3 = new List<String> { "Nota de prueba 1 para persona C" };
             conP.agregarPersona(new PersonaR(10021212, "abc", 0, new DateTime(2001, 12, 25), "099791290", notas1));
             conP.agregarPersona(new PersonaR(53597406, "cba", 0, new DateTime(2001, 12, 25), "099791290", notas2));
             conP.agregarPersona(new PersonaR(12345678, "xyz", 0, new DateTime(2001, 12, 25), "099791290", notas3));

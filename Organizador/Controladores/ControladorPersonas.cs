@@ -21,6 +21,10 @@ namespace Organizador.Controladores
         public bool agregarPersona(PersonaR persona)
         {
             Persona npersona = new Persona(persona.CI, persona.Name, persona.BirthDate, persona.Telefono);
+            foreach (var nota in persona.Notas)
+            {
+                npersona.agregarNota(nota);
+            }
             return coleccionPersonas.AddPerson(npersona);   
         }
         public List<PersonaR> mostrarPersonas()
